@@ -1,0 +1,21 @@
+# Dependencias instaladas por npm
+/node_modules
+
+# Archivos generados durante la ejecución del proyecto
+/dist
+/coverage
+
+# Archivo de configuración personal
+/.env
+
+# Archivos de registro o salida del proyecto
+/logs
+
+# Archivos de respaldo o copias de seguridad
+*.bak
+*.swp
+*.~lock.*
+
+# Archivos de configuración de IDE específicos
+.idea/
+.vscode/

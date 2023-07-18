@@ -1,0 +1,125 @@
+- src/
+  - config/
+    - database.js
+  - modules/
+    - Singleton/
+      - Singleton.js
+  - controllers/
+    - SingletonController.js
+  - services/
+    - SingletonService.js
+  - utils/
+    - SingletonUtil.js
+  - index.js
+- tests/
+  - controllers/
+    - SingletonController.test.js
+  - services/
+    - SingletonService.test.js
+- .env
+- .gitignore
+- package.json
+- README.md
+
+-------------------------------
+verion ma sescalable
+
+- src/
+  - config/
+    - database.js
+  - modules/
+    - singleton/
+      - Singleton.js
+      - controllers/
+        - SingletonController.js
+      - services/
+        - SingletonService.js
+      - utils/
+        - SingletonUtil.js
+  - index.js
+- tests/
+  - controllers/
+    - SingletonController.test.js
+  - services/
+    - SingletonService.test.js
+- .env
+- .gitignore
+- package.json
+- README.md
+
+-------------------------------
+
+En este ejemplo, se utiliza una función inmediatamente invocada (IIFE) para encapsular la implementación del Singleton. La función se invoca inmediatamente después de ser definida, creando un alcance cerrado.
+
+La instancia única del Singleton se mantiene en la variable instance, que es una variable privada dentro del alcance de la IIFE. El método estático getInstance se asigna directamente a la función Singleton.
+
+Para utilizar el Singleton en otros archivos de tu aplicación, puedes importar el archivo singleton.js y llamar al método getInstance() para obtener la instancia única:
+
+javascript
+Copy code
+const Singleton = require('./singleton');
+
+const instance = Singleton.getInstance();
+
+// Utilizar la instancia del Singleton
+// ...
+Recuerda que este es solo otro formato de implementación del patrón Singleton. Ambas versiones, la clase y la función IIFE, logran el mismo objetivo de tener una única instancia de una clase en toda la aplicación. Puedes elegir el formato que mejor se adapte a tu código y preferencias de estilo.
+
+-------------------
+añadir doble checkeo de loggeo
+
+En esta versión, se ha agregado el doble chequeo de bloqueo para asegurar que solo se cree una única instancia del Singleton incluso en entornos multihilo o con múltiples hilos de ejecución.
+
+El doble chequeo de bloqueo se implementa utilizando la sincronización con synchronized. En JavaScript, no hay un soporte nativo para la sincronización y los bloques sincronizados, pero puedes implementar esta lógica utilizando librerías o técnicas específicas para sincronización en JavaScript.
+
+Recuerda que el doble chequeo de bloqueo es una técnica avanzada y puede no ser necesaria en todos los casos. Antes de utilizarla, asegúrate de entender bien tus necesidades y el entorno de ejecución de tu aplicación para determinar si es necesario aplicar esta técnica de bloqueo.
+
+
+El doble chequeo de bloqueo, también conocido como "double-checked locking" en inglés, es una técnica utilizada en el diseño de patrones Singleton para garantizar que solo se cree una única instancia de una clase, especialmente en entornos multihilo o con múltiples hilos de ejecución.
+
+La idea principal del doble chequeo de bloqueo es minimizar la sincronización y el bloqueo innecesario al crear la instancia del Singleton. El objetivo es mejorar el rendimiento evitando el bloqueo de todo el código cuando la instancia ya ha sido creada.
+
+La implementación básica del doble chequeo de bloqueo en un patrón Singleton implica realizar una verificación adicional antes y después de adquirir el bloqueo. A continuación se muestra un pseudocódigo para ilustrar el concepto:
+
+java
+Copy code
+class Singleton {
+  private static Singleton instance;
+
+  private Singleton() {
+    // Constructor privado para evitar instanciación directa
+  }
+
+  public static Singleton getInstance() {
+    if (instance == null) { // Primera verificación sin bloquear
+      synchronized (Singleton.class) {
+        if (instance == null) { // Segunda verificación con bloqueo
+          instance = new Singleton();
+        }
+      }
+    }
+    return instance;
+  }
+}
+En el código anterior, se realiza una primera verificación (if (instance == null)) fuera del bloque sincronizado para verificar si la instancia ya ha sido creada. Si la instancia ya existe, se devuelve directamente sin adquirir el bloqueo completo.
+
+Si la instancia aún no se ha creado, se adquiere el bloqueo del objeto Singleton.class y se realiza una segunda verificación dentro del bloque sincronizado antes de crear la instancia. Esto es importante para asegurarse de que otro hilo no haya creado la instancia mientras se espera para adquirir el bloqueo.
+
+El doble chequeo de bloqueo es una técnica avanzada y puede ser útil en entornos multihilo o con múltiples hilos de ejecución. Sin embargo, es importante tener en cuenta que su implementación correcta puede ser compleja y depende de las características específicas del lenguaje de programación y del entorno de ejecución.
+
+En lenguajes de programación como JavaScript, que no tienen soporte nativo para la sincronización y los bloques sincronizados, es posible que se requiera una implementación alternativa para lograr el doble chequeo de bloqueo o utilizar otras técnicas de sincronización adecuadas para el entorno.
+
+En esta mejora, se ha introducido una versión mejorada del doble chequeo de bloqueo utilizando una técnica llamada "Double-Checked Locking with Volatile" que aborda un problema común conocido como "reordenamiento de instrucciones" (instruction reordering) en algunos lenguajes de programación y entornos de ejecución.
+
+Para lograr esto, se utiliza la palabra clave volatile para asegurar que las operaciones de inicialización de la instancia no se reordenen por el compilador o el entorno de ejecución. Sin embargo, ten en cuenta que la palabra clave volatile no está disponible en JavaScript y esta implementación se proporciona solo a modo de ejemplo conceptual.
+
+Es importante destacar que en la mayoría de los casos, en entornos de ejecución modernos y con implementaciones de JavaScript estándar, el doble chequeo de bloqueo puede no ser necesario, ya que JavaScript es de un solo hilo y las operaciones de asignación son atómicas. La implementación básica del patrón Singleton es suficiente para garantizar una única instancia en la mayoría de los casos de uso en JavaScript.
+
+
+Lamento informarte que JavaScript no admite directamente la palabra clave volatile para garantizar el comportamiento deseado del Double-Checked Locking. El uso de volatile está relacionado con las características de sincronización de hilos presentes en lenguajes como Java, pero no es aplicable en el contexto de JavaScript, ya que JavaScript es un lenguaje de un solo hilo y no tiene un modelo de concurrencia de hilos.
+
+Dado que JavaScript no tiene soporte nativo para el Double-Checked Locking o la palabra clave volatile, no es posible implementar esta técnica específica en el código anterior.
+
+Sin embargo, ten en cuenta que en JavaScript, el patrón Singleton se puede implementar de manera efectiva utilizando una función inmediatamente invocada (IIFE) o utilizando módulos de ES6. Estas técnicas aprovechan las características propias de JavaScript para garantizar una única instancia del Singleton sin la necesidad de implementar explícitamente el Double-Checked Locking.
+
+Si tienes más preguntas o necesitas ayuda adicional, no dudes en preguntar. Estoy aquí para ayudarte.

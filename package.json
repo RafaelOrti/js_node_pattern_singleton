@@ -1,0 +1,17 @@
+{
+  "name": "singleton-example",
+  "version": "1.0.0",
+  "description": "Ejemplo de implementación de Singleton en JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "dependencies": {
+    "logger": "^1.2.0"
+  },
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
+}
