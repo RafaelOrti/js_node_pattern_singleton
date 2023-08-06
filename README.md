@@ -1,56 +1,48 @@
-
 # Singleton Example
 
-Este es un ejemplo de implementación del patrón de diseño Singleton en TypesScript.
+This is an implementation example of the Singleton design pattern in TypeScript.
 
-## Descripción
+## Description
 
-El patrón de diseño Singleton se utiliza para garantizar que solo haya una instancia de una clase determinada en todo el programa. Esto puede ser útil cuando se desea tener un único punto de acceso a una funcionalidad o recurso compartido.
+The Singleton design pattern is used to ensure that there is only one instance of a particular class throughout the program. This can be useful when you want to have a single point of access to a shared functionality or resource.
 
-En este ejemplo, hemos implementado el Singleton utilizando clases y métodos estáticos en JavaScript. Se ha creado un SingletonController que actúa como una interfaz para interactuar con un Singleton subyacente, y un SingletonUtil que representa el Singleton real con su propia lógica y propiedades.
+In this example, we have implemented the Singleton using classes and static methods in JavaScript. We have created a `SingletonController` that acts as an interface to interact with an underlying Singleton, and a `SingletonUtil` that represents the actual Singleton with its own logic and properties.
 
-## Instalación
+## Installation
 
-1. Clona este repositorio:
+1. Clone this repository:
 
 ```shell
-git clone <URL_DEL_REPOSITORIO>
+git clone <REPOSITORY_URL>
 ```
-Instala las dependencias:
+Install dependencies:
+```
+npm install```
+Usage
+The usage of the Singleton is done through the SingletonController. You can import it and use its methods to interact with the underlying Singleton.
 
-   ```shell
-   npm install
-   ```
-Uso
-El uso del Singleton se realiza a través del SingletonController. Puedes importarlo y utilizar sus métodos para interactuar con el Singleton subyacente.
+```
+import SingletonController from './SingletonController';
 
-   ```shell
-   import SingletonController from './SingletonController';
-   
-   const singletonController = SingletonController.getInstance();
-   
-   singletonController.method1();
-   singletonController.method2();
-   ```
-Recuerda ajustar el código según tus necesidades específicas y los métodos disponibles en tu SingletonController.
+const singletonController = SingletonController.getInstance();
 
-Pruebas
-El proyecto incluye pruebas utilizando el framework de pruebas Jest. Puedes ejecutar las pruebas con el siguiente comando:
+singletonController.method1();
+singletonController.method2();```
+Remember to adjust the code according to your specific needs and the available methods in your SingletonController.
 
-   ```shell
-   npm test
-   ```
-Las pruebas verifican el comportamiento esperado de los métodos del SingletonController y del SingletonUtil.
+## Testing
+The project includes tests using the Jest testing framework. You can run the tests with the following command:
 
-Contribución
-Si deseas contribuir a este proyecto, puedes seguir los siguientes pasos:
+```
+npm test```
+The tests verify the expected behavior of the methods in the SingletonController and SingletonUtil.
 
-Haz un fork del repositorio.
-Crea una nueva rama para tu contribución.
-Realiza tus modificaciones.
-Realiza un pull request a la rama principal.
-Licencia
-Este proyecto está bajo la Licencia MIT. Ver el archivo LICENSE para más detalles.
+## Contribution
+If you want to contribute to this project, you can follow these steps:
 
-
-
+Fork the repository.
+Create a new branch for your contribution.
+Make your modifications.
+Submit a pull request to the main branch.
+## License
+This project is under the MIT License. See the LICENSE file for more details.
