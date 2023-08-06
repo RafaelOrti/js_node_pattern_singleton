@@ -15,10 +15,12 @@ En este ejemplo, hemos implementado el Singleton utilizando clases y métodos es
 
    ```shell
    git clone <URL_DEL_REPOSITORIO>
+   ```shell
 Instala las dependencias:
 
    ```shell
    npm install
+   ```shell
 Uso
 El uso del Singleton se realiza a través del SingletonController. Puedes importarlo y utilizar sus métodos para interactuar con el Singleton subyacente.
 
