@@ -2,7 +2,7 @@ php
 Copy code
 # Singleton Example
 
-Este es un ejemplo de implementación del patrón de diseño Singleton en JavaScript.
+Este es un ejemplo de implementación del patrón de diseño Singleton en TypesScript.
 
 ## Descripción
 
