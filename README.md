@@ -4,7 +4,19 @@ This is an implementation example of the Singleton design pattern in TypeScript.
 
 ## Description
 
-The Singleton design pattern is used to ensure that there is only one instance of a particular class throughout the program. This can be useful when you want to have a single point of access to a shared functionality or resource.
+The Singleton pattern is a creational design pattern that ensures only one instance of a class exists and provides a global access point to that instance. This pattern is often used in scenarios where having multiple instances of a class could lead to issues or inefficiencies.
+
+Key characteristics of the Singleton pattern:
+
+1. Private Constructor: The Singleton class has a private constructor, preventing direct instantiation of the class from outside.
+
+2. Private Static Instance: The Singleton class holds a private static instance of itself, which is the only instance that exists throughout the application's lifetime.
+
+3. Public Static Method: The Singleton class provides a public static method to access its instance. This method is usually named getInstance() and returns the unique instance of the class.
+
+4. Lazy Initialization (optional): The instance of the Singleton class is typically created only when the getInstance() method is called for the first time, rather than eagerly creating it during class loading.
+
+5. Thread Safety (optional): If the application is multithreaded, it's essential to handle potential race conditions during the instance creation process to ensure that only one instance is created.
 
 In this example, we have implemented the Singleton using classes and static methods in JavaScript. We have created a `SingletonController` that acts as an interface to interact with an underlying Singleton, and a `SingletonUtil` that represents the actual Singleton with its own logic and properties.
 
