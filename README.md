@@ -16,25 +16,28 @@ In this example, we have implemented the Singleton using classes and static meth
 git clone <REPOSITORY_URL>
 ```
 Install dependencies:
+```shell
+npm install
 ```
-npm install```
 Usage
 The usage of the Singleton is done through the SingletonController. You can import it and use its methods to interact with the underlying Singleton.
 
-```
+```shell
 import SingletonController from './SingletonController';
 
 const singletonController = SingletonController.getInstance();
 
 singletonController.method1();
-singletonController.method2();```
+singletonController.method2();
+```
 Remember to adjust the code according to your specific needs and the available methods in your SingletonController.
 
 ## Testing
 The project includes tests using the Jest testing framework. You can run the tests with the following command:
 
+```shell
+npm test
 ```
-npm test```
 The tests verify the expected behavior of the methods in the SingletonController and SingletonUtil.
 
 ## Contribution
