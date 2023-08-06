@@ -13,9 +13,9 @@ En este ejemplo, hemos implementado el Singleton utilizando clases y métodos es
 
 1. Clona este repositorio:
 
-   ```shell
-   git clone <URL_DEL_REPOSITORIO>
-   ```
+```shell
+git clone <URL_DEL_REPOSITORIO>
+```
 Instala las dependencias:
 
    ```shell
