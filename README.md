@@ -17,8 +17,8 @@ En este ejemplo, hemos implementado el Singleton utilizando clases y métodos es
    git clone <URL_DEL_REPOSITORIO>
 Instala las dependencias:
 
- ```shell
-npm install
+   ```shell
+   npm install
 Uso
 El uso del Singleton se realiza a través del SingletonController. Puedes importarlo y utilizar sus métodos para interactuar con el Singleton subyacente.
 
@@ -35,8 +35,8 @@ Recuerda ajustar el código según tus necesidades específicas y los métodos d
 Pruebas
 El proyecto incluye pruebas utilizando el framework de pruebas Jest. Puedes ejecutar las pruebas con el siguiente comando:
 
- ```shell
-npm test
+   ```shell
+   npm test
 Las pruebas verifican el comportamiento esperado de los métodos del SingletonController y del SingletonUtil.
 
 Contribución
